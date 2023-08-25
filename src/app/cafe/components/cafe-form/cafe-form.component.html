@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">Cadastrar um Cafe</mat-toolbar>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Sabor</mat-label>
+        <input matInput type="text" formControlName="sabor"/>
+        <mat-error *ngIf="formGroup.get('sabor') &&
+                formGroup.get('sabor')?.invalid &&
+                formGroup.get('sabor')?.touched">
+            Sabor é obrigatório.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Quantidade</mat-label>
+        <input matInput type="text" formControlName="quantidade"/>
+        <mat-error *ngIf="formGroup.get('quantidade') &&
+                formGroup.get('quantidade')?.invalid &&
+                formGroup.get('quantidade')?.touched">
+            Quantidade é obrigatório.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Temperatura</mat-label>
+      <input matInput type="text" formControlName="temperatura"/>
+      <mat-error *ngIf="formGroup.get('temperatura') &&
+              formGroup.get('temperatura')?.invalid &&
+              formGroup.get('temperatura')?.touched">
+          Temperatura é obrigatória.
+      </mat-error>
+  </mat-form-field>
+    <button mat-raised-button color="primary"
+        type="submit"[disabled]="formGroup.invalid">
+        Salvar
+    </button>
+
+</form>
